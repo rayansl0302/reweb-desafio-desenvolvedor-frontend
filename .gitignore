@@ -1,0 +1,6 @@
+node_modules/
+yarn.lock
+.vscode
+main.css
+.DS_Store
+/dist

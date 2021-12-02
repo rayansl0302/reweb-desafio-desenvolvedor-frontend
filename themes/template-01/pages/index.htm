@@ -1,0 +1,88 @@
+
+  <!--include do json-->
+{% set output = source('source/output/index.json') | json_decode %}
+  <!--variáveis-->
+{% set texts = output.texts %}
+{% set assets = output.assets %}
+{% set highlights = output.highlights %}
+{% set form = output.form %}
+
+<!DOCTYPE html>
+<html amp>
+  <head>
+    <title>{{ texts.title }}</title>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="index.html" />
+    <meta name="viewport" content="width=device-width" />
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+    <style amp-custom>{% include 'assets/css/main.css' %}</style>    
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    <div class="block">
+      <span class="block__img">
+        <amp-img src="{{ assets.meme }}" width="476" height="313" layout="responsive" alt="Challenge Acepted!"></amp-img>
+      </span>
+      <h1 class="block__title">
+        {{ texts.welcome }}
+      </h1>
+    </div>
+  </body>
+</html>

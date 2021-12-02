@@ -1,0 +1,41 @@
+@import "_variables";
+
+@font-face {
+  font-family: $font-family-sans-serif;
+  font-weight: normal;
+  src: url("#{$font-path-regular}");
+}
+
+@font-face {
+  font-family: $font-family-sans-serif;
+  font-weight: 700;
+  src: url("#{$font-path-bold}");
+}
+
+* {
+  font-family: $font-family-sans-serif;
+  background-color: $body-bg;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  .block__img {
+      margin-bottom: 2rem;
+    amp-img {
+      width: 476px;
+      height: 313px;
+    }
+  }
+  .block__title {
+    color: $font-primary;
+  }
+}
