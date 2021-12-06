@@ -54,7 +54,7 @@ Segue abaixo as tarefas a serem realizadas:
 
 # 📷 Mockup do desafio
 
-![Screenshot](screenshot.png)
+![Screenshot](screencapture.png)
 
 # ✌️ Instruções de entrega
 
