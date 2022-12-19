@@ -63,36 +63,17 @@
           "message_success": "Enviado com sucesso!",
           "message_error": "Erro, tente novamente!",
           "button": "Enviar",
+          "image_home": "https:\/\/via.placeholder.com\/1000x400",
           "privacy_policy": {
             "enabled": "1",
             "name": "politica_privacidade",
             "value": "Sim",
-            "label": "Aceita as Pol\u00edticas de Privacidade?"
+            "label": "Aceita as Pol\u00edticas de Privacidade?",
+            "type":"checkbox",
+            "required": "1"
           }
         },
-        "fields": [
-          {
-            "type": "radio",
-            "name": "servicos",
-            "label": "Serviços",
-            "placeholder": "Serviços",
-            "required": "1",
-            "mask": "",
-            "options": [
-              {
-                "value": "test_drive",
-                "label": "Test Drive"
-              },
-              {
-                "value": "manutencao",
-                "label": "Manutenção"
-              },
-              {
-                "value": "pos_venda",
-                "label": "Pós venda"
-              }
-            ]
-          },
+        "fields": [          
           {
             "type": "text",
             "name": "nome",
@@ -113,20 +94,20 @@
           },
           {
             "type": "text",
+            "name": "cpf",
+            "label": "Cpf",
+            "placeholder": "CPF",
+            "required": "1",
+            "mask": "",
+            "switched": ""
+          },
+          {
+            "type": "text",
             "name": "telefone",
             "label": "Telefone",
             "placeholder": "Telefone",
             "required": "1",
             "mask": "(00)0000-0000",
-            "switched": ""
-          },
-          {
-            "type": "textarea",
-            "name": "mensagem",
-            "label": "Mensagem",
-            "placeholder": "Mensagem",
-            "required": "1",
-            "mask": "",
             "switched": ""
           }
         ]

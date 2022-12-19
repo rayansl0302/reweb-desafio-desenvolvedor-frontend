@@ -1,11 +1,8 @@
-
-  <!--include do json-->
+<!--include do json-->
 {% set output = source('source/output/index.json') | json_decode %}
-  <!--variáveis-->
-{% set texts = output.texts %}
-{% set assets = output.assets %}
-{% set highlights = output.highlights %}
-{% set form = output.form %}
+<!--variáveis-->
+{% set texts = output.texts %} {% set assets = output.assets %} {% set
+highlights = output.highlights %} {% set form = output.form %}
 
 <!DOCTYPE html>
 <html amp>
@@ -72,17 +69,111 @@
         }
       </style></noscript
     >
-    <style amp-custom>{% include 'assets/css/main.css' %}</style>    
+    <style amp-custom>
+      {% include '/assets/css/main.css'%}
+    </style>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
   <body>
-    <div class="block">
+    <!-- <div class="block">
       <span class="block__img">
         <amp-img src="{{ assets.meme }}" width="476" height="313" layout="responsive" alt="Challenge Acepted!"></amp-img>
       </span>
       <h1 class="block__title">
         {{ texts.welcome }}
       </h1>
+    </div> -->
+
+    <div class="navbar">
+      <div class="navbar__img">
+        <amp-img
+          alt="A view of the sea"
+          src="https://reweb-amp-static.nyc3.digitaloceanspaces.com/www-reweb-com-br/d023b48054818294-reweb-imagens-600-verde.png"
+          width="150"
+          height="75"
+          layout="responsive"
+        >
+        </amp-img>
+      </div>
     </div>
+    <div class="banner">
+    <div class="banner__form">
+        <form
+          method="post"
+          class="banner__form__inputs"
+          action-xhr="https://example.com/subscribe"
+          target="_top"
+        >
+        <h2>Solicite Cotação</h2>
+        {% for field in form.banner_01.fields %}          
+          <input type="{{ field.type }}" label="{{ field.label }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}" mask="{{ field.mask }}" required="{{ field.required }}" rows="{{ field.rows }}" cols="{{ field.cols }}"/>
+        
+          <br />
+          {% endfor %}
+          <textarea  rows="4" cols="30" placeholder="Mensagem"></textarea>
+          <br/>
+         <div class="check">         
+          <input id="aceito" type="{{ form.banner_01.settings.privacy_policy.type }}"required="{{ form.banner_01.settings.privacy_policy.required }}">
+          <label>{{ form.banner_01.settings.privacy_policy.label }}</label>
+        </div>
+        <button class="btn__enviar" type="button">{{ form.banner_01.settings.button}}</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="cards_area">
+      {% for highlight in highlights %}
+      <div class="card">
+        <amp-img
+          src="{{ highlight.image_home }}"
+          width="476"
+          height="415"
+          layout="responsive"
+          alt="highlight"
+        ></amp-img>
+        <div class="card__text">
+          <h4>{{ highlight.title }}</h4>
+          <br>
+          <p>
+            {{ highlight.description }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="youtube">
+      <amp-embedly-card
+      data-url="https://www.youtube.com/watch?v=gDnkFy6Avvo"
+      layout="responsive"
+      width="100"
+      height="50"
+    >
+    </amp-embedly-card>
+    </div>
+    <footer class="footer">
+      <div class="footer__img">
+        <amp-img
+          alt="A view of the sea"
+          src="https://reweb-amp-static.nyc3.digitaloceanspaces.com/www-reweb-com-br/d023b48054818294-reweb-imagens-600-verde.png"
+          width="100"
+          height="50"
+          layout="responsive"
+        >
+        </amp-img>
+      </div>
+      <div class="autor">
+        <p>Desenvolvido por Reweb</p>
+      </div>
+    </footer>
+    <script
+      async
+      custom-element="amp-youtube"
+      src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-embedly-card"
+      src="https://cdn.ampproject.org/v0/amp-embedly-card-0.1.js"
+    ></script>
   </body>
 </html>
